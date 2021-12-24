@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky install"
+    "build": "tsc --build",
+    "start": "node dist/main/server.js",
+    "dev": "tsnd --transpile-only --trace-deprecation --respawn --ignore-watch node_modules src/main/server.ts"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
     "lint-staged": "^12.1.4",
     "mssql": "^7.3.0",
     "ts-jest": "^27.1.2",
+    "ts-node-dev": "^1.1.8",
     "typeorm": "^0.2.41",
     "typescript": "^4.5.4"
   },

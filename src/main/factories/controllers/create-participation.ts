@@ -1,11 +1,11 @@
 import { CreateParticipationService } from '../../../data/services/create-participation'
-import { ParticipationRepositoryTypeORM } from '../../../infra/participation-repository'
 import { CreateParticipationController } from '../../../presentation/controllers/create-participation'
 import { makeCreateParticipationValidator } from '../validators/create-participation'
 import { Controller } from '../../../presentation/contracts/controller'
+import { ParticipationRepositoryFirebase } from '../../../infra/participation-repository-firebase'
 
 export const makeCreateParticipationController = (): Controller => {
-  const participationRepositoryTypeORM = new ParticipationRepositoryTypeORM()
-  const createParticipationService = new CreateParticipationService(participationRepositoryTypeORM)
+  const participationRepositoryFirebase = new ParticipationRepositoryFirebase()
+  const createParticipationService = new CreateParticipationService(participationRepositoryFirebase)
   return new CreateParticipationController(makeCreateParticipationValidator(), createParticipationService)
 }
